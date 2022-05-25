@@ -10,10 +10,10 @@
       font-size: 34px;
       max-width: 57%;
     }
-    color: $main-blue;
+    color: $black;
     font-weight: bold;
     font-size: 80px;
-    max-width: 42%;
+    max-width: 56%;
     text-align: center;
   }
 
@@ -26,6 +26,7 @@
     font-size: 36px;
     font-weight: bold;
     text-align: center;
+    width: 66%;
   }
 
   &__button {
@@ -37,6 +38,11 @@
       font-size: 11px;
     };
     cursor: pointer;
+  }
+
+  &__step {
+    color: $gray;
+    margin-top: 30px;
   }
 }
 

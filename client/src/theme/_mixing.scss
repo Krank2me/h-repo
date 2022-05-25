@@ -45,3 +45,11 @@
   font-size: 29px;
   margin-top: 73px;
 }
+
+@mixin  input {
+  height: 45px;
+  width: 567px;
+  margin: 10px 0px;
+  border-radius: 5px;
+  padding-left: 13px;
+}

@@ -5,27 +5,20 @@
   @include display-flex(column, center, center);
   margin-top: 15%;
 
-  &__title {
-    @include media(xs) {
-      font-size: 34px;
-      max-width: 57%;
-    }
-    color: $main-blue;
-    font-weight: bold;
-    font-size: 80px;
-    max-width: 42%;
-    text-align: center;
-  }
-
   &__msg {
     @include media(xs) {
       font-size: 14px;
     }
     color: $black;
     margin-top: 50px;
+    margin-bottom: 60px;
     font-size: 36px;
     font-weight: bold;
     text-align: center;
+  }
+
+  &__input {
+    @include input;
   }
 
   &__button {
@@ -38,5 +31,9 @@
     };
     cursor: pointer;
   }
-}
 
+  &__step {
+    color: $gray;
+    margin-top: 30px;
+  }
+}

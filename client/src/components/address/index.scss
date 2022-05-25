@@ -5,27 +5,32 @@
   @include display-flex(column, center, center);
   margin-top: 15%;
 
-  &__title {
-    @include media(xs) {
-      font-size: 34px;
-      max-width: 57%;
-    }
-    color: $main-blue;
-    font-weight: bold;
-    font-size: 80px;
-    max-width: 42%;
-    text-align: center;
-  }
-
   &__msg {
     @include media(xs) {
       font-size: 14px;
     }
     color: $black;
     margin-top: 50px;
+    margin-bottom: 60px;
     font-size: 36px;
     font-weight: bold;
     text-align: center;
+    width: 520px;
+  }
+
+  &__address {
+    @include display-flex();
+  }
+
+  &__street {
+    @include input;
+    margin-right: 20px;
+    width: 495px;
+  }
+
+  &__apt {
+    @include input;
+    width: 70px;
   }
 
   &__button {
@@ -37,6 +42,11 @@
       font-size: 11px;
     };
     cursor: pointer;
+    width: 275px;
+  }
+
+  &__step {
+    color: $gray;
+    margin-top: 30px;
   }
 }
-
