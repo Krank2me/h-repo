@@ -1,0 +1,47 @@
+@import "./_variables";
+
+@mixin display-flex(
+  $flex-direction: row,
+  $align-items: stretch,
+  $align-content: flex-start
+) {
+  display: flex;
+  flex-direction: $flex-direction;
+  align-items: $align-items;
+  align-content: $align-content;
+}
+
+@mixin media($media) {
+  @if $media==all {
+    @media only screen and (min-width: 1px) {
+      @content;
+    }
+  }
+  @if $media==xs {
+    @media only screen and (max-width: $point-sm) {
+      @content;
+    }
+  } @else if $media==sm {
+    @media only screen and (min-width: $point-sm) and (max-width: $point-md) {
+      @content;
+    }
+  } @else if $media==md {
+    @media only screen and (min-width: $point-md) and (max-width: $point-lg) {
+      @content;
+    }
+  } @else if $media==lg {
+    @media only screen and (min-width: $point-lg) {
+      @content;
+    }
+  }
+}
+
+@mixin button-primary {
+  color: $white;
+  background-color: $main-blue;
+  width: 362px;
+  height: 92px;
+  border-radius: 7px;
+  font-size: 29px;
+  margin-top: 73px;
+}
