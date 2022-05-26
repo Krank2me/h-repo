@@ -1,0 +1,39 @@
+@import "../../theme/_variables";
+@import "../../theme/_mixing";
+
+.container {
+  @include display-flex(column, center, center);
+  margin-top: 15%;
+
+  &__msg {
+    @include media(xs) {
+      font-size: 14px;
+    }
+    color: $black;
+    margin-top: 50px;
+    margin-bottom: 60px;
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  &__input {
+    @include input;
+  }
+
+  &__button {
+    @include button-primary;
+    @include media(xs) {
+      width: 124px;
+      height: 38px;
+      border-radius: 5px;
+      font-size: 11px;
+    };
+    cursor: pointer;
+  }
+
+  &__step {
+    color: $gray;
+    margin-top: 30px;
+  }
+}
