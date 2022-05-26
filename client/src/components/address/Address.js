@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { getBuildings } from "../../services/buildings";
 import { useNavigate } from "react-router-dom";
 import "./index.scss";
 
@@ -9,6 +10,15 @@ export const Address = () => {
   };
 
   const [value, setValue] = useState(inicialStateValues);
+
+  const getAllBuildings = async () => {
+    const response = await getBuildings();
+    setValue(response);
+  };
+
+  useEffect(() => {
+    getAllBuildings();
+  }, []);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;

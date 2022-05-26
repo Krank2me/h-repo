@@ -1,12 +1,25 @@
+const dotenv = require("dotenv");
 const express = require("express");
-const cors = require("cors");
+const http = require("http");
+const configExpress = require("./config/express");
+const connectDB = require("./config/database");
+
+const envFile = process.env.NODE_ENV ? `.env.${process.env.NODE_ENV}` : ".env";
+dotenv.config({ path: envFile });
+
 const app = express();
+const server = http.Server(app);
 
-//settings
-app.set("port", process.env.PORT || 4001);
+const env = process.env.NODE_ENV;
 
-//middleware
-app.use(cors());
-app.use(express.json());
+if (env !== "test") {
+  connectDB();
+}
 
-module.exports = app;
+//routes
+const routes = require("./routes");
+routes(app);
+
+configExpress(app);
+
+module.exports = { app, server };

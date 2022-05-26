@@ -1,9 +1,10 @@
 require("dotenv").config();
-const app = require("./app");
+const { server } = require("./app");
 
-async function main() {
-  await app.listen(app.get("port"));
-  console.log("Server on port ", app.get("port"));
-}
+const port = process.env.PORT || 8080;
 
-main();
+server.listen(port, () => {
+  console.log(`Server running 🤖🚀 at http://localhost:${port}/`);
+});
+
+module.exports = server;

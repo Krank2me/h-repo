@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { createUser } from "../../services/user";
 import { useNavigate } from "react-router-dom";
 import "./index.scss";
 
@@ -17,8 +18,11 @@ export const Subscribe = () => {
 
   const navigate = useNavigate();
 
-  const handleClick = () => {
-    navigate("/");
+  const handleClick = async () => {
+    const response = await createUser(value);
+    if (response) {
+      navigate("/welcome");
+    }
   };
 
   return (
