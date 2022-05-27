@@ -9,11 +9,11 @@ export const Address = () => {
     apartment: "",
   };
 
-  const [value, setValue] = useState(inicialStateValues);
+  const [valueAddress, setValueAddress] = useState(inicialStateValues);
 
   const getAllBuildings = async () => {
     const response = await getBuildings();
-    setValue(response);
+    setValueAddress(response);
   };
 
   useEffect(() => {
@@ -22,12 +22,14 @@ export const Address = () => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setValue({ ...value, [name]: value });
+    setValueAddress({ ...valueAddress, [name]: value });
   };
 
   const navigate = useNavigate();
 
   const handleClick = () => {
+    localStorage.setItem("address", valueAddress.address);
+    localStorage.setItem("apartment", valueAddress.apartment);
     navigate("/plan");
   };
 
@@ -37,21 +39,31 @@ export const Address = () => {
         Plesure to meet you, Cristian! What is your install address?
       </h3>
       <div className="container__address">
-        <input
+        <select
           className="container__street"
-          type="text"
-          placeholder="STREET ADDRESS, CITY, STATE"
           name="address"
+          value={valueAddress.address}
           onChange={handleInputChange}
-          value={value.firstName}
-        />
+        >
+          {valueAddress?.data?.map((item) => {
+            return (
+              <option
+                key={item._id}
+                value={`${item.name} - ${item.address}, ${item.city}, ${item.state}`}
+              >
+                {item.name} - {item.address}, {item.city}, {item.state}
+              </option>
+            );
+          })}
+        </select>
+
         <input
           className="container__apt"
           type="text"
           placeholder="APT #"
           name="apartment"
           onChange={handleInputChange}
-          value={value.firstName}
+          value={valueAddress.apartment}
         />
       </div>
       <button className="container__button" onClick={handleClick}>

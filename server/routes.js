@@ -1,9 +1,9 @@
 const buildings = require("./api/buildings");
-const user = require("./api/user");
+const users = require("./api/user");
 
 function routes(app) {
   app.use("/api/v1/buildings", buildings);
-  app.use("/api/v1/user", user);
+  app.use("/api/v1/users", users);
 }
 
 module.exports = routes;
