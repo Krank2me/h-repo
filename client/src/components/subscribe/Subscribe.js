@@ -9,19 +9,37 @@ export const Subscribe = () => {
     phone: "",
   };
 
-  const [value, setValue] = useState(inicialStateValues);
+  const [valueData, setValueData] = useState(inicialStateValues);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setValue({ ...value, [name]: value });
+    setValueData({ ...valueData, [name]: value });
   };
 
   const navigate = useNavigate();
 
   const handleClick = async () => {
-    const response = await createUser(value);
-    if (response) {
-      navigate("/welcome");
+    localStorage.setItem("email", valueData.email);
+    localStorage.setItem("phone", valueData.phone);
+    const userData = {
+      firstName: localStorage.getItem("firstName"),
+      lastName: localStorage.getItem("lastName"),
+      address: localStorage.getItem("address"),
+      apartment: localStorage.getItem("apartment"),
+      plan: [
+        {
+          monthsFree: 1,
+          label: "Premium",
+          price: "50",
+        },
+      ],
+      email: localStorage.getItem("email"),
+      phone: localStorage.getItem("phone"),
+    };
+    const response = await createUser(userData);
+    if (response.status === 201) {
+      localStorage.clear();
+      navigate("/");
     }
   };
 
@@ -38,7 +56,7 @@ export const Subscribe = () => {
         placeholder="EMAIL"
         name="email"
         onChange={handleInputChange}
-        value={value.firstName}
+        value={valueData.firstName}
       />
       <input
         className="container__input"
@@ -46,7 +64,7 @@ export const Subscribe = () => {
         placeholder="PHONE NUMBER"
         name="phone"
         onChange={handleInputChange}
-        value={value.lastName}
+        value={valueData.lastName}
       />
       <button className="container__button" onClick={handleClick}>
         SUBSCRIBE NOW!

@@ -8,16 +8,18 @@ export const FullName = () => {
     lastName: "",
   };
 
-  const [value, setValue] = useState(inicialStateValues);
+  const [valueName, setValueName] = useState(inicialStateValues);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setValue({ ...value, [name]: value });
+    setValueName({ ...valueName, [name]: value });
   };
 
   const navigate = useNavigate();
 
   const handleClick = () => {
+    localStorage.setItem("firstName", valueName.firstName);
+    localStorage.setItem("lastName", valueName.lastName);
     navigate("/address");
   };
 
@@ -32,7 +34,7 @@ export const FullName = () => {
         placeholder="FIRST NAME"
         name="firstName"
         onChange={handleInputChange}
-        value={value.firstName}
+        value={valueName.firstName}
       />
       <input
         className="container__input"
@@ -40,7 +42,7 @@ export const FullName = () => {
         placeholder="LAST NAME"
         name="lastName"
         onChange={handleInputChange}
-        value={value.lastName}
+        value={valueName.lastName}
       />
       <button className="container__button" onClick={handleClick}>
         NEXT

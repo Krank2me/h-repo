@@ -17,10 +17,13 @@ const UserSchema = new mongoose.Schema({
     type: Number,
     trim: true,
   },
-  plan: {
-    type: String,
-    trim: true,
-  },
+  plan: [
+    {
+      monthsFree: Number,
+      label: String,
+      price: String,
+    },
+  ],
   email: {
     type: String,
     trim: true,
