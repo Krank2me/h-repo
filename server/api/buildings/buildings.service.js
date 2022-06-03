@@ -5,4 +5,18 @@ async function getAllBuildings() {
   return buildings;
 }
 
-module.exports = getAllBuildings;
+function findBuildingByQuery(search) {
+  const query = {
+    $or: [
+      { name: { $regex: search, $options: "i" } },
+      { address: { $regex: search, $options: "i" } },
+      { city: { $regex: search, $options: "i" } },
+      { state: { $regex: search, $options: "i" } },
+      { postal: { $regex: search, $options: "i" } },
+    ],
+  };
+
+  return Buildings.find(query);
+}
+
+module.exports = { getAllBuildings, findBuildingByQuery };

@@ -1,7 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');
 @import "../../theme/_variables";
 @import "../../theme/_mixing";
 
-.container {
+.container__welcome {
   @include display-flex(column, center, center);
   margin-top: 15%;
 
@@ -12,6 +13,7 @@
     }
     color: $main-blue;
     font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
     font-size: 80px;
     max-width: 42%;
     text-align: center;

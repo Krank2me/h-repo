@@ -17,36 +17,40 @@ export const FullName = () => {
 
   const navigate = useNavigate();
 
-  const handleClick = () => {
+  const handleSubmit = () => {
     localStorage.setItem("firstName", valueName.firstName);
     localStorage.setItem("lastName", valueName.lastName);
     navigate("/address");
   };
 
   return (
-    <div className="container">
+    <div className="container__fullName">
       <h3 className="container__msg">
         Awesome! Let's get started with the basics.
       </h3>
-      <input
-        className="container__input"
-        type="text"
-        placeholder="FIRST NAME"
-        name="firstName"
-        onChange={handleInputChange}
-        value={valueName.firstName}
-      />
-      <input
-        className="container__input"
-        type="text"
-        placeholder="LAST NAME"
-        name="lastName"
-        onChange={handleInputChange}
-        value={valueName.lastName}
-      />
-      <button className="container__button" onClick={handleClick}>
-        NEXT
-      </button>
+      <form className="container__fullName__form" onSubmit={handleSubmit}>
+        <input
+          className="container__input"
+          type="text"
+          placeholder="FIRST NAME"
+          name="firstName"
+          onChange={handleInputChange}
+          value={valueName.firstName}
+          required
+        />
+        <input
+          className="container__input"
+          type="text"
+          placeholder="LAST NAME"
+          name="lastName"
+          onChange={handleInputChange}
+          value={valueName.lastName}
+          required
+        />
+        <button className="container__button" type="submit">
+          NEXT
+        </button>
+      </form>
       <label className="container__step">STEP 1 OF 4</label>
     </div>
   );

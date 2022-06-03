@@ -2,7 +2,7 @@
 @import "../../theme/_mixing";
 
 .container {
-  @include display-flex(column, center, center);
+  @include display-flex(row, center, center);
   margin-top: 15%;
 
   &__msg {
@@ -26,11 +26,21 @@
     @include input;
     margin-right: 20px;
     width: 495px;
+    font-size: 10px;
+    @include media(xs) {
+      height: 30px;
+      width: 165px;
+    }
   }
 
   &__apt {
     @include input;
     width: 70px;
+    @include media(xs) {
+      height: 30px;
+      width: 50px;
+      font-size: 10px;
+    }
   }
 
   &__button {

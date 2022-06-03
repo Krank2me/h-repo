@@ -3,12 +3,14 @@
 @mixin display-flex(
   $flex-direction: row,
   $align-items: stretch,
-  $align-content: flex-start
+  $align-content: flex-start,
+  $justify-content: space-between
 ) {
   display: flex;
   flex-direction: $flex-direction;
   align-items: $align-items;
   align-content: $align-content;
+  justify-content: $justify-content;
 }
 
 @mixin media($media) {

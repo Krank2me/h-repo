@@ -23,7 +23,7 @@ const BuildingsSchema = new mongoose.Schema({
     uppercase: true,
   },
   postal: {
-    type: Number,
+    type: String,
     required: true,
     trim: true,
   },
