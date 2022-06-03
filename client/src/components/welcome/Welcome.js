@@ -10,12 +10,12 @@ export const Welcome = () => {
   };
 
   return (
-    <div className="container">
-      <h1 className="container__title">The Best TV service around!</h1>
-      <h3 className="container__msg">
+    <div className="container__welcome">
+      <h1 className="container__welcome__title">The Best TV service around!</h1>
+      <h3 className="container__welcome__msg">
         Are you ready to enjoy ultra-best service?
       </h3>
-      <button className="container__button" onClick={handleClick}>
+      <button className="container__welcome__button" onClick={handleClick}>
         LET'S DO IT!
       </button>
     </div>
