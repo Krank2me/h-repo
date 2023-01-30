@@ -25,7 +25,7 @@
 * create and configure the `.env` file in the root project with following data
   ```shell
   PORT=4000
-  MONGO_DB_URI=mongodb+srv://megatvdb:megatv123@cluster0.glfyhtt.mongodb.net/megatvdb?retryWrites=true&w=majority
+  MONGO_DB_URI= db url
   ```
 * run `npm run dev`
 
